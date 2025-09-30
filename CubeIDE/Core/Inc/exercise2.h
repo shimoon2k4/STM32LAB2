@@ -5,8 +5,8 @@
  *      Author: Lenovo
  */
 
-#ifndef INC_EXERCISE1_H_
-#define INC_EXERCISE1_H_
+#ifndef INC_EXERCISE2_H_
+#define INC_EXERCISE2_H_
 #include "main.h"
 extern int timer_flag;
 void setTimer(int duration);
@@ -18,4 +18,4 @@ void clear7SEG();
 
 
 
-#endif /* INC_EXERCISE1_H_ */
+#endif /* INC_EXERCISE2_H_ */

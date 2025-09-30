@@ -4,7 +4,7 @@
  *  Created on: Sep 30, 2025
  *      Author: Lenovo
  */
-#include "exercise1.h"
+#include <exercise2.h>
 int timer_counter = 0,
     timer_flag = 0;
 void setTimer(int duration){
@@ -129,5 +129,7 @@ void initState() {
 	clear7SEG();
 	HAL_GPIO_WritePin(EN0_GPIO_Port, EN0_Pin, SET);
 	HAL_GPIO_WritePin(EN1_GPIO_Port, EN1_Pin, SET);
+	HAL_GPIO_WritePin(EN2_GPIO_Port, EN2_Pin, SET);
+	HAL_GPIO_WritePin(EN3_GPIO_Port, EN3_Pin, SET);
 }
 
