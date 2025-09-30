@@ -104,18 +104,18 @@ if(timer_flag == 1){
 	setTimer(50);
 	HAL_GPIO_TogglePin ( LED_RED_GPIO_Port , LED_RED_Pin ) ;
 	state = 1 - state;
-}
-if(state == 0){
-	HAL_GPIO_WritePin(EN0_GPIO_Port, EN0_Pin, RESET);
-	HAL_GPIO_WritePin(EN1_GPIO_Port, EN1_Pin, SET);
-	display7SEG(1);
-}
-else{
-	HAL_GPIO_WritePin(EN0_GPIO_Port, EN0_Pin, SET);
-	HAL_GPIO_WritePin(EN1_GPIO_Port, EN1_Pin, RESET);
-    display7SEG(2);
-}
+	if(state == 0){
+		HAL_GPIO_WritePin(EN0_GPIO_Port, EN0_Pin, RESET);
+		HAL_GPIO_WritePin(EN1_GPIO_Port, EN1_Pin, SET);
+		display7SEG(1);
+	}
+	else{
+		HAL_GPIO_WritePin(EN0_GPIO_Port, EN0_Pin, SET);
+		HAL_GPIO_WritePin(EN1_GPIO_Port, EN1_Pin, RESET);
+	    display7SEG(2);
+	}
 
+}
 
     /* USER CODE BEGIN 3 */
   }

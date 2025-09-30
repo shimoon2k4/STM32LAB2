@@ -678,7 +678,7 @@ if(timer_flag == 1){
  800056e:	4b18      	ldr	r3, [pc, #96]	; (80005d0 <main+0x8c>)
  8000570:	681b      	ldr	r3, [r3, #0]
  8000572:	2b01      	cmp	r3, #1
- 8000574:	d10a      	bne.n	800058c <main+0x48>
+ 8000574:	d1fb      	bne.n	800056e <main+0x2a>
 	setTimer(50);
  8000576:	2032      	movs	r0, #50	; 0x32
  8000578:	f7ff fde8 	bl	800014c <setTimer>
@@ -690,38 +690,37 @@ if(timer_flag == 1){
  8000584:	687b      	ldr	r3, [r7, #4]
  8000586:	f1c3 0301 	rsb	r3, r3, #1
  800058a:	607b      	str	r3, [r7, #4]
-}
-if(state == 0){
+	if(state == 0){
  800058c:	687b      	ldr	r3, [r7, #4]
  800058e:	2b00      	cmp	r3, #0
  8000590:	d10d      	bne.n	80005ae <main+0x6a>
-	HAL_GPIO_WritePin(EN0_GPIO_Port, EN0_Pin, RESET);
+		HAL_GPIO_WritePin(EN0_GPIO_Port, EN0_Pin, RESET);
  8000592:	2200      	movs	r2, #0
  8000594:	2140      	movs	r1, #64	; 0x40
  8000596:	480f      	ldr	r0, [pc, #60]	; (80005d4 <main+0x90>)
  8000598:	f000 fca6 	bl	8000ee8 <HAL_GPIO_WritePin>
-	HAL_GPIO_WritePin(EN1_GPIO_Port, EN1_Pin, SET);
+		HAL_GPIO_WritePin(EN1_GPIO_Port, EN1_Pin, SET);
  800059c:	2201      	movs	r2, #1
  800059e:	2180      	movs	r1, #128	; 0x80
  80005a0:	480c      	ldr	r0, [pc, #48]	; (80005d4 <main+0x90>)
  80005a2:	f000 fca1 	bl	8000ee8 <HAL_GPIO_WritePin>
-	display7SEG(1);
+		display7SEG(1);
  80005a6:	2001      	movs	r0, #1
  80005a8:	f7ff fe28 	bl	80001fc <display7SEG>
  80005ac:	e7df      	b.n	800056e <main+0x2a>
-}
-else{
-	HAL_GPIO_WritePin(EN0_GPIO_Port, EN0_Pin, SET);
+	}
+	else{
+		HAL_GPIO_WritePin(EN0_GPIO_Port, EN0_Pin, SET);
  80005ae:	2201      	movs	r2, #1
  80005b0:	2140      	movs	r1, #64	; 0x40
  80005b2:	4808      	ldr	r0, [pc, #32]	; (80005d4 <main+0x90>)
  80005b4:	f000 fc98 	bl	8000ee8 <HAL_GPIO_WritePin>
-	HAL_GPIO_WritePin(EN1_GPIO_Port, EN1_Pin, RESET);
+		HAL_GPIO_WritePin(EN1_GPIO_Port, EN1_Pin, RESET);
  80005b8:	2200      	movs	r2, #0
  80005ba:	2180      	movs	r1, #128	; 0x80
  80005bc:	4805      	ldr	r0, [pc, #20]	; (80005d4 <main+0x90>)
  80005be:	f000 fc93 	bl	8000ee8 <HAL_GPIO_WritePin>
-    display7SEG(2);
+	    display7SEG(2);
  80005c2:	2002      	movs	r0, #2
  80005c4:	f7ff fe1a 	bl	80001fc <display7SEG>
 if(timer_flag == 1){
