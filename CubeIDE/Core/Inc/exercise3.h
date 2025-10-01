@@ -5,10 +5,11 @@
  *      Author: Lenovo
  */
 
-#ifndef INC_EXERCISE2_H_
-#define INC_EXERCISE2_H_
+#ifndef INC_EXERCISE3_H_
+#define INC_EXERCISE3_H_
 #include "main.h"
 extern int timer_flag[3];
+void update7SEG(int index);
 void setTimer(int index, int duration);
 void timerRun();
 void display7SEG(int num);
@@ -18,4 +19,4 @@ void clear7SEG();
 
 
 
-#endif /* INC_EXERCISE2_H_ */
+#endif /* INC_EXERCISE3_H_ */

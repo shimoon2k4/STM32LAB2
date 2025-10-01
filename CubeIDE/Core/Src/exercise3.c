@@ -4,8 +4,9 @@
  *  Created on: Sep 30, 2025
  *      Author: Lenovo
  */
-#include <exercise2.h>
-int count;
+#include <exercise3.h>
+const int MAX_LED = 4;
+int led_buffer[4] = {1, 2, 3, 0};
 int timer_flag[3] = {0, 0, 0};
 int timer_counter[3] = {0, 0, 0};
 void setTimer(int index, int duration){
@@ -128,6 +129,24 @@ void display7SEG(int num){
 		break;
 	default:
 		clear7SEG();
+		break;
+	}
+}
+void update7SEG(int index){
+	switch(index){
+	case 1:
+		display7SEG(led_buffer[0]);
+		break;
+	case 2:
+		display7SEG(led_buffer[1]);
+		break;
+	case 3:
+		display7SEG(led_buffer[2]);
+		break;
+	case 4:
+		display7SEG(led_buffer[3]);
+		break;
+	default:
 		break;
 	}
 }
