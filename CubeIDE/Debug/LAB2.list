@@ -773,8 +773,8 @@ int main(void)
  8000624:	2164      	movs	r1, #100	; 0x64
  8000626:	2001      	movs	r0, #1
  8000628:	f7ff fd90 	bl	800014c <setTimer>
-  setTimer(2, 50);
- 800062c:	2132      	movs	r1, #50	; 0x32
+  setTimer(2, 25);
+ 800062c:	2119      	movs	r1, #25
  800062e:	2002      	movs	r0, #2
  8000630:	f7ff fd8c 	bl	800014c <setTimer>
   initState();
@@ -846,8 +846,8 @@ if(timer_flag[2] == 1){
  800069a:	689b      	ldr	r3, [r3, #8]
  800069c:	2b01      	cmp	r3, #1
  800069e:	d1cf      	bne.n	8000640 <main+0x40>
-	setTimer(2, 50);
- 80006a0:	2132      	movs	r1, #50	; 0x32
+	setTimer(2, 25);
+ 80006a0:	2119      	movs	r1, #25
  80006a2:	2002      	movs	r0, #2
  80006a4:	f7ff fd52 	bl	800014c <setTimer>
  80006a8:	687b      	ldr	r3, [r7, #4]

@@ -96,7 +96,7 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   setTimer(0,100);
   setTimer(1, 100);
-  setTimer(2, 50);
+  setTimer(2, 25);
   initState();
   int state = 1,
 	led_flag = 0;
@@ -120,7 +120,7 @@ if(timer_flag[1] == 1){
 
 }
 if(timer_flag[2] == 1){
-	setTimer(2, 50);
+	setTimer(2, 25);
 	switch (state) {
 	case 1:
 		HAL_GPIO_WritePin(EN1_GPIO_Port, EN1_Pin, SET);
