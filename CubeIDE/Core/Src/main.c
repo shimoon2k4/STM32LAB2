@@ -18,7 +18,7 @@
   */
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
-#include <exercise3.h>
+#include <exercise5.h>
 #include "main.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -96,10 +96,10 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   setTimer(0,100);
   setTimer(1, 100);
-  setTimer(2, 25);
+  setTimer(2, 50);
   initState();
   int state = 1,
-	led_flag = 0;
+	  led_flag = 0;
   while (1)
   {
     /* USER CODE END WHILE */
@@ -119,8 +119,23 @@ if(timer_flag[1] == 1){
 	setTimer(1, 100);
 
 }
+if(timer_flag[1] == 1){
+	second++;
+	if(second>=60){
+		second = 0;
+		minute++;
+	}
+	if(minute>=60){
+		minute = 0;
+		hour++;
+	}
+	if(hour>=24){
+		hour = 0;
+	}
+	updateClockBuffer();
+}
 if(timer_flag[2] == 1){
-	setTimer(2, 25);
+	setTimer(2, 50);
 	switch (state) {
 	case 1:
 		HAL_GPIO_WritePin(EN1_GPIO_Port, EN1_Pin, SET);

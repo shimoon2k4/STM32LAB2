@@ -4,9 +4,12 @@
  *  Created on: Sep 30, 2025
  *      Author: Lenovo
  */
-#include <exercise3.h>
+#include <exercise5.h>
 const int MAX_LED = 4;
-int led_buffer[4] = {1, 2, 3, 0};
+int second,
+    minute,
+	hour;
+int led_buffer[4] = {1, 5, 0, 8};
 int timer_flag[3] = {0, 0, 0};
 int timer_counter[3] = {0, 0, 0};
 void setTimer(int index, int duration){
@@ -149,6 +152,12 @@ void update7SEG(int index){
 	default:
 		break;
 	}
+}
+void updateClockBuffer(){
+	led_buffer[0] = hour/10;
+	led_buffer[1] = hour%10;
+	led_buffer[2] = minute/10;
+	led_buffer[3] = minute%10;
 }
 void initState() {
 	clear7SEG();
