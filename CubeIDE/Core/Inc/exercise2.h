@@ -8,8 +8,8 @@
 #ifndef INC_EXERCISE2_H_
 #define INC_EXERCISE2_H_
 #include "main.h"
-extern int timer_flag;
-void setTimer(int duration);
+extern int timer_flag[3];
+void setTimer(int index, int duration);
 void timerRun();
 void display7SEG(int num);
 void initState();

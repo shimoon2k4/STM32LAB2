@@ -1,0 +1,5 @@
+exercise2.c:11:6:setTimer	16	static
+exercise2.c:16:6:timerRun	16	static
+exercise2.c:28:6:clear7SEG	8	static
+exercise2.c:37:6:display7SEG	16	static
+exercise2.c:134:6:initState	8	static

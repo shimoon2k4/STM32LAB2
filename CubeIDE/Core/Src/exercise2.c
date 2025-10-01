@@ -5,18 +5,24 @@
  *      Author: Lenovo
  */
 #include <exercise2.h>
-int timer_counter = 0,
-    timer_flag = 0;
-void setTimer(int duration){
-	timer_counter = duration;
-	timer_flag = 0;
+int count;
+int timer_flag[3] = {0, 0, 0};
+int timer_counter[3] = {0, 0, 0};
+void setTimer(int index, int duration){
+	if(index>2) return;
+	timer_counter[index] = duration;
+	timer_flag[index] = 0;
 }
 void timerRun(){
-	if(timer_counter>0){
-		timer_counter--;
-		if(timer_counter <= 0){
-			timer_flag = 1;
+	int index = 0;
+	while(index<3){
+	if(timer_counter[index]>0){
+		timer_counter[index]--;
+		if(timer_counter[index] <= 0){
+			timer_flag[index] = 1;
 		}
+	}
+	index++;
 	}
 }
 void clear7SEG() {
