@@ -6,9 +6,6 @@
  */
 #include <exercise5.h>
 const int MAX_LED = 4;
-int second,
-    minute,
-	hour;
 int led_buffer[4] = {1, 5, 0, 8};
 int timer_flag[3] = {0, 0, 0};
 int timer_counter[3] = {0, 0, 0};
@@ -153,7 +150,7 @@ void update7SEG(int index){
 		break;
 	}
 }
-void updateClockBuffer(){
+void updateClockBuffer(int hour, int minute){
 	led_buffer[0] = hour/10;
 	led_buffer[1] = hour%10;
 	led_buffer[2] = minute/10;

@@ -100,6 +100,9 @@ int main(void)
   initState();
   int state = 1,
 	  led_flag = 0;
+  int second = 0,
+      minute = 8,
+  	  hour = 15;
   while (1)
   {
     /* USER CODE END WHILE */
@@ -117,9 +120,6 @@ if(timer_flag[0] == 1){
 }
 if(timer_flag[1] == 1){
 	setTimer(1, 100);
-
-}
-if(timer_flag[1] == 1){
 	second++;
 	if(second>=60){
 		second = 0;
@@ -132,7 +132,7 @@ if(timer_flag[1] == 1){
 	if(hour>=24){
 		hour = 0;
 	}
-	updateClockBuffer();
+	updateClockBuffer(hour, minute);
 }
 if(timer_flag[2] == 1){
 	setTimer(2, 50);

@@ -1,7 +1,7 @@
-exercise5.c:15:6:setTimer	16	static
-exercise5.c:20:6:timerRun	16	static
-exercise5.c:32:6:clear7SEG	8	static
-exercise5.c:41:6:display7SEG	16	static
-exercise5.c:138:6:update7SEG	16	static
-exercise5.c:156:6:updateClockBuffer	4	static
-exercise5.c:162:6:initState	8	static
+exercise5.c:12:6:setTimer	16	static
+exercise5.c:17:6:timerRun	16	static
+exercise5.c:29:6:clear7SEG	8	static
+exercise5.c:38:6:display7SEG	16	static
+exercise5.c:135:6:update7SEG	16	static
+exercise5.c:153:6:updateClockBuffer	16	static
+exercise5.c:159:6:initState	8	static
