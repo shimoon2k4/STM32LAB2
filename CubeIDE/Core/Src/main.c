@@ -18,7 +18,7 @@
   */
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
-#include <exercise5.h>
+#include <exercise6.h>
 #include "main.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -94,9 +94,9 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  setTimer(0,100);
-  setTimer(1, 100);
-  setTimer(2, 50);
+  setTimer(0,1000);
+  setTimer(1, 1000);
+  setTimer(2, 500);
   initState();
   int state = 1,
 	  led_flag = 0;
@@ -107,7 +107,7 @@ int main(void)
   {
     /* USER CODE END WHILE */
 if(timer_flag[0] == 1){
-	setTimer(0,100);
+	setTimer(0,1000);
 	if(led_flag == 0){
 			HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, SET);
 			HAL_GPIO_WritePin(DOT_GPIO_Port, DOT_Pin, RESET);
@@ -119,7 +119,7 @@ if(timer_flag[0] == 1){
 	led_flag = 1 - led_flag;
 }
 if(timer_flag[1] == 1){
-	setTimer(1, 100);
+	setTimer(1, 1000);
 	second++;
 	if(second>=60){
 		second = 0;
@@ -135,7 +135,7 @@ if(timer_flag[1] == 1){
 	updateClockBuffer(hour, minute);
 }
 if(timer_flag[2] == 1){
-	setTimer(2, 50);
+	setTimer(2, 500);
 	switch (state) {
 	case 1:
 		HAL_GPIO_WritePin(EN1_GPIO_Port, EN1_Pin, SET);
