@@ -6,6 +6,9 @@
  */
 #include <exercise6.h>
 const int MAX_LED = 4;
+const int MAX_LED_MATRIX = 8;
+int index_led_matrix = 0;
+uint8_t matrix_buffer[8] = {0x01 , 0x02 , 0x03 , 0x04 , 0x05 , 0x06 , 0x07 , 0x08};
 int led_buffer[4] = {1, 5, 0, 8};
 int timer_flag[3] = {0, 0, 0};
 int timer_counter[3] = {0, 0, 0};
@@ -164,4 +167,25 @@ void initState() {
 	HAL_GPIO_WritePin(EN2_GPIO_Port, EN2_Pin, SET);
 	HAL_GPIO_WritePin(EN3_GPIO_Port, EN3_Pin, SET);
 }
-
+void updateLEDMatrix (int index ){
+	switch ( index ){
+	case 0:
+	     break;
+	case 1:
+	     break;
+	case 2:
+	     break;
+	case 3:
+		break;
+	case 4:
+		break;
+	case 5:
+		break;
+	case 6:
+		break;
+	case 7:
+		break;
+	default:
+		break;
+	}
+}
