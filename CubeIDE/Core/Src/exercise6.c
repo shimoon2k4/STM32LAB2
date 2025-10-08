@@ -10,8 +10,8 @@ const int MAX_LED_MATRIX = 8;
 int index_led_matrix = 0;
 uint8_t matrix_buffer[8] = {0x18, 0x3C, 0x66, 0x66, 0x7E, 0x7E, 0x66, 0x66};
 int led_buffer[4] = {1, 5, 0, 8};
-int timer_flag[10] = {0};
-int timer_counter[10] = {0};
+int timer_flag[4] = {0, 0, 0, 0};
+int timer_counter[4] = {0, 0, 0, 0};
 int TIMER_CYCLE = 10;
 void setTimer(int index, int duration){
 	if(index>3) return;

@@ -97,20 +97,19 @@ int main(void)
   setTimer(0,1000);
   setTimer(1, 1000);
   setTimer(2, 500);
-  setTimer(3, 10);
   initState();
   int state = 1,
 	  led_flag = 0;
   int second = 0,
       minute = 8,
   	  hour = 15;
-  int index_led_matrix = 0;
-   int shift = 1;
+//  int index_led_matrix = 0;
+//   int shift = 1;
   while (1)
   {
     /* USER CODE END WHILE */
 	  if(timer_flag[0] == 1){
-	  	setTimer(0,1000);
+		  setTimer(0,1000);
 	  	if(led_flag == 0){
 	  			HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, SET);
 	  			HAL_GPIO_WritePin(DOT_GPIO_Port, DOT_Pin, RESET);
@@ -120,7 +119,6 @@ int main(void)
 	  			HAL_GPIO_WritePin(DOT_GPIO_Port, DOT_Pin, SET);
 	  		}
 	  	led_flag = 1 - led_flag;
-	  	setTimer(0,1000);
 	  }
 	  if(timer_flag[1] == 1){
 	  	second++;
@@ -165,7 +163,7 @@ int main(void)
 	  		HAL_GPIO_WritePin(EN0_GPIO_Port, EN0_Pin, SET);
 	  		HAL_GPIO_WritePin(EN1_GPIO_Port, EN1_Pin, SET);
 	  		HAL_GPIO_WritePin(EN2_GPIO_Port, EN2_Pin, SET);
-	  		HAL_GPIO_WritePin(EN2_GPIO_Port, EN3_Pin, RESET);
+	  		HAL_GPIO_WritePin(EN3_GPIO_Port, EN3_Pin, RESET);
 	  		update7SEG(state);
 	  		break;
 
@@ -174,14 +172,14 @@ int main(void)
 	  	if(state>4) state = 1;
 	  	setTimer(2, 500);
 	  }
-	  if (timer_flag[3] == 1)
-	  	{
-	  		updateLEDMatrix(index_led_matrix, shift);
-	  		index_led_matrix++;
-	  		if (index_led_matrix >= 9)
-	  			index_led_matrix = 0;
-	  		setTimer(3, 10);
-	  	}
+//	  if (timer_flag[3] == 1)
+//	  	{
+//	  		updateLEDMatrix(index_led_matrix, shift);
+//	  		index_led_matrix++;
+//	  		if (index_led_matrix >= 9)
+//	  			index_led_matrix = 0;
+//	  		setTimer(3, 10);
+//	  	}
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */

@@ -8,7 +8,7 @@
 #ifndef INC_EXERCISE6_H_
 #define INC_EXERCISE6_H_
 #include "main.h"
-extern int timer_flag[10];
+extern int timer_flag[4];
 extern int second,
            minute,
 	       hour;
