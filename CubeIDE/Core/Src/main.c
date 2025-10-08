@@ -18,7 +18,7 @@
   */
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
-#include <exercise9.h>
+#include <exercise10.h>
 #include "main.h"
 #include "software_timer.h"
 /* USER CODE END Includes */
@@ -104,6 +104,7 @@ int main(void)
       minute = 8,
   	  hour = 15;
   int index_led_matrix = 0;
+  int shift = 1;
   while (1)
   {
     /* USER CODE END WHILE */
@@ -167,7 +168,7 @@ int main(void)
 	  }
 	  if (timer_flag[3] == 1)
 	  	{
-	  		updateLEDMatrix(index_led_matrix);
+	  		updateLEDMatrix(index_led_matrix, shift);
 	  		index_led_matrix++;
 	  		if (index_led_matrix >= 9)
 	  			index_led_matrix = 0;

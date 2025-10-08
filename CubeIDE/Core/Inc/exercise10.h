@@ -5,8 +5,8 @@
  *      Author: Lenovo
  */
 
-#ifndef INC_EXERCISE9_H_
-#define INC_EXERCISE9_H_
+#ifndef INC_EXERCISE10_H_
+#define INC_EXERCISE10_H_
 #include "main.h"
 extern int second,
            minute,
@@ -18,8 +18,9 @@ void initState();
 void clear7SEG();
 void displayCol(int index);
 void clearMatrix();
-void updateLEDMatrix(int index);
+void shiftBuffer(int shift);
+void updateLEDMatrix(int index, int shift);
 
 
 
-#endif /* INC_EXERCISE9_H_ */
+#endif /* INC_EXERCISE10_H_ */

@@ -4,7 +4,7 @@
  *  Created on: Sep 30, 2025
  *      Author: Lenovo
  */
-#include <exercise9.h>
+#include <exercise10.h>
 const int MAX_LED = 4;
 const int MAX_LED_MATRIX = 8;
 int index_led_matrix = 0;
@@ -162,9 +162,15 @@ void displayCol(int index)
 void clearMatrix(){
 	HAL_GPIO_WritePin(GPIOB, ROW0_Pin | ROW1_Pin | ROW2_Pin | ROW3_Pin | ROW4_Pin | ROW5_Pin | ROW6_Pin | ROW7_Pin , SET);
 }
-
-
-void updateLEDMatrix(int index)
+void shiftBuffer(int shift)
+{
+	for (int i = 0; i < 8; i++)
+	{
+		uint8_t tmp = matrix_buffer[i];
+		matrix_buffer[i] = (tmp << (8 - shift)) | (tmp >> shift);
+	}
+}
+void updateLEDMatrix(int index, int shift)
 {
 	clearMatrix();
 	switch (index)
@@ -202,6 +208,7 @@ void updateLEDMatrix(int index)
 			HAL_GPIO_WritePin(GPIOB, ROW7_Pin, RESET);
 			break;
 		default:
+			shiftBuffer(shift);
 			break;
 	}
 }
