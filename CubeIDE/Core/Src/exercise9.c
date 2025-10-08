@@ -4,32 +4,12 @@
  *  Created on: Sep 30, 2025
  *      Author: Lenovo
  */
-#include <exercise6.h>
+#include <exercise9.h>
 const int MAX_LED = 4;
 const int MAX_LED_MATRIX = 8;
 int index_led_matrix = 0;
 uint8_t matrix_buffer[8] = {0x18, 0x3C, 0x66, 0x66, 0x7E, 0x7E, 0x66, 0x66};
 int led_buffer[4] = {1, 5, 0, 8};
-int timer_flag[4] = {0, 0, 0, 0};
-int timer_counter[4] = {0, 0, 0, 0};
-int TIMER_CYCLE = 10;
-void setTimer(int index, int duration){
-	if(index>3) return;
-	timer_counter[index] = duration/TIMER_CYCLE;
-	timer_flag[index] = 0;
-}
-void timerRun(){
-	int index = 0;
-	while(index<4){
-	if(timer_counter[index]>0){
-		timer_counter[index]--;
-		if(timer_counter[index] <= 0){
-			timer_flag[index] = 1;
-		}
-	}
-	index++;
-	}
-}
 void clear7SEG() {
 	HAL_GPIO_WritePin(SEG0_GPIO_Port, SEG0_Pin, GPIO_PIN_SET);
 	HAL_GPIO_WritePin(SEG5_GPIO_Port, SEG5_Pin, GPIO_PIN_SET);
@@ -183,17 +163,8 @@ void clearMatrix(){
 	HAL_GPIO_WritePin(GPIOB, ROW0_Pin | ROW1_Pin | ROW2_Pin | ROW3_Pin | ROW4_Pin | ROW5_Pin | ROW6_Pin | ROW7_Pin , SET);
 }
 
-void shiftBuffer(int shift)
-{
-	for (int i = 0; i < 8; i++)
-	{
-		uint8_t tmp = matrix_buffer[i];
-		matrix_buffer[i] = (tmp << (8 - shift)) | (tmp >> shift);
-	}
-}
 
-
-void updateLEDMatrix(int index, int shift)
+void updateLEDMatrix(int index)
 {
 	clearMatrix();
 	switch (index)
@@ -231,7 +202,6 @@ void updateLEDMatrix(int index, int shift)
 			HAL_GPIO_WritePin(GPIOB, ROW7_Pin, RESET);
 			break;
 		default:
-			shiftBuffer(shift);
 			break;
 	}
 }

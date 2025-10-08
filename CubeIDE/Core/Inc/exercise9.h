@@ -5,25 +5,21 @@
  *      Author: Lenovo
  */
 
-#ifndef INC_EXERCISE6_H_
-#define INC_EXERCISE6_H_
+#ifndef INC_EXERCISE9_H_
+#define INC_EXERCISE9_H_
 #include "main.h"
-extern int timer_flag[4];
 extern int second,
            minute,
 	       hour;
 void update7SEG(int index);
 void updateClockBuffer();
-void setTimer(int index, int duration);
-void timerRun();
 void display7SEG(int num);
 void initState();
 void clear7SEG();
 void displayCol(int index);
 void clearMatrix();
-void shiftBuffer(int shift);
-void updateLEDMatrix(int index, int shift);
+void updateLEDMatrix(int index);
 
 
 
-#endif /* INC_EXERCISE6_H_ */
+#endif /* INC_EXERCISE9_H_ */
