@@ -19,7 +19,7 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-
+#include "exercise6.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
@@ -97,17 +97,20 @@ int main(void)
   setTimer(0,1000);
   setTimer(1, 1000);
   setTimer(2, 500);
+  setTimer(3, 10);
   initState();
   int state = 1,
 	  led_flag = 0;
   int second = 0,
       minute = 8,
   	  hour = 15;
+  int index_led_matrix = 0;
+   int shift = 1;
   while (1)
   {
     /* USER CODE END WHILE */
 	  if(timer_flag[0] == 1){
-	  	setTimer(0,100);
+	  	setTimer(0,1000);
 	  	if(led_flag == 0){
 	  			HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, SET);
 	  			HAL_GPIO_WritePin(DOT_GPIO_Port, DOT_Pin, RESET);
@@ -117,9 +120,9 @@ int main(void)
 	  			HAL_GPIO_WritePin(DOT_GPIO_Port, DOT_Pin, SET);
 	  		}
 	  	led_flag = 1 - led_flag;
+	  	setTimer(0,1000);
 	  }
 	  if(timer_flag[1] == 1){
-	  	setTimer(1, 100);
 	  	second++;
 	  	if(second>=60){
 	  		second = 0;
@@ -133,9 +136,9 @@ int main(void)
 	  		hour = 0;
 	  	}
 	  	updateClockBuffer(hour, minute);
+	  	setTimer(1, 1000);
 	  }
 	  if(timer_flag[2] == 1){
-	  	setTimer(2, 50);
 	  	switch (state) {
 	  	case 1:
 	  		HAL_GPIO_WritePin(EN1_GPIO_Port, EN1_Pin, SET);
@@ -169,7 +172,16 @@ int main(void)
 	  	}
 	  	state++;
 	  	if(state>4) state = 1;
+	  	setTimer(2, 500);
 	  }
+	  if (timer_flag[3] == 1)
+	  	{
+	  		updateLEDMatrix(index_led_matrix, shift);
+	  		index_led_matrix++;
+	  		if (index_led_matrix >= 9)
+	  			index_led_matrix = 0;
+	  		setTimer(3, 10);
+	  	}
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */

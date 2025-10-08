@@ -8,7 +8,7 @@
 #ifndef INC_EXERCISE6_H_
 #define INC_EXERCISE6_H_
 #include "main.h"
-extern int timer_flag[3];
+extern int timer_flag[10];
 extern int second,
            minute,
 	       hour;
@@ -19,7 +19,10 @@ void timerRun();
 void display7SEG(int num);
 void initState();
 void clear7SEG();
-
+void displayCol(int index);
+void clearMatrix();
+void shiftBuffer(int shift);
+void updateLEDMatrix(int index, int shift);
 
 
 
