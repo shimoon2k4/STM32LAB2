@@ -77,7 +77,7 @@ Disassembly of section .text:
  8000148:	080020c4 	.word	0x080020c4
 
 0800014c <setTimer>:
-#include <exercise3.h>
+#include <exercise4.h>
 const int MAX_LED = 4;
 int led_buffer[4] = {1, 2, 3, 0};
 int timer_flag[3] = {0, 0, 0};
@@ -956,7 +956,7 @@ if(timer_flag[2] == 1){
  800077a:	f44f 7180 	mov.w	r1, #256	; 0x100
  800077e:	480d      	ldr	r0, [pc, #52]	; (80007b4 <main+0x1b4>)
  8000780:	f000 fca4 	bl	80010cc <HAL_GPIO_WritePin>
-		HAL_GPIO_WritePin(EN2_GPIO_Port, EN3_Pin, RESET);
+		HAL_GPIO_WritePin(EN3_GPIO_Port, EN3_Pin, RESET);
  8000784:	2200      	movs	r2, #0
  8000786:	f44f 7100 	mov.w	r1, #512	; 0x200
  800078a:	480a      	ldr	r0, [pc, #40]	; (80007b4 <main+0x1b4>)

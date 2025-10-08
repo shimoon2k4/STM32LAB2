@@ -4,7 +4,7 @@
  *  Created on: Sep 30, 2025
  *      Author: Lenovo
  */
-#include <exercise3.h>
+#include <exercise4.h>
 const int MAX_LED = 4;
 int led_buffer[4] = {1, 2, 3, 0};
 int timer_flag[3] = {0, 0, 0};
