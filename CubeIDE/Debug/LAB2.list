@@ -894,7 +894,7 @@ if(timer_flag[2] == 1){
  8000712:	f44f 7180 	mov.w	r1, #256	; 0x100
  8000716:	480d      	ldr	r0, [pc, #52]	; (800074c <main+0x1b4>)
  8000718:	f000 fca4 	bl	8001064 <HAL_GPIO_WritePin>
-		HAL_GPIO_WritePin(EN2_GPIO_Port, EN3_Pin, RESET);
+		HAL_GPIO_WritePin(EN3_GPIO_Port, EN3_Pin, RESET);
  800071c:	2200      	movs	r2, #0
  800071e:	f44f 7100 	mov.w	r1, #512	; 0x200
  8000722:	480a      	ldr	r0, [pc, #40]	; (800074c <main+0x1b4>)
